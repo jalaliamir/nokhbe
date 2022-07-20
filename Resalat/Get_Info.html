@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body onload="info_ta()" class="bg_body_enter">
+    <div class="col-lg-4 main p0">
+        <div class="col-12 first_img p0">
+            <img src="images/back3.png">
+        </div>
+        <div class="choose_el">
+
+            <div class="text_cat enter_code">
+                <p>
+                    اطلاعاتت رو وارد کن تا باهات تماس بگیریم
+                </p>
+            </div>
+
+            <form method="post">
+                <div class="link_cat code_input">
+                    <input type="text" name="name" id="name" placeholder="نام و نام خانوادگی">
+                </div>
+                <div class="link_cat code_input">
+                    <input type="tel" name="phone" id="phone" placeholder="شماره موبایل ">
+                </div>
+                <div class="link_cat code_input display_none">
+                    <input type="tel" name="prize" id="prize" value="">
+                </div>
+                <div class="link_cat code_input display_none">
+                    <input type="tel" name="code" id="code" value="">
+                </div>
+                <div onclick="Go_To()" class="go_to_next_page p_15_120 submite_btn more_btn">
+                    <input type="submit" value="ادامه">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+<script src="js/jquery-3.5.1.min.js "></script>
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Script -->
+<script>
+    var name_input;
+    var number_input;
+    var prize_input;
+    var code_input;
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+
+
+    function info_ta() {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < 15; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        // alert(result);
+        // code_input = result;
+        document.getElementById("code").value = result;
+        sessionStorage.setItem('Code_person', result);
+
+        // return result;
+        var prize = sessionStorage.getItem('winningInnerSegment');
+        document.getElementById("prize").value = prize;
+    }
+
+    function setCookie(cname, result, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + result + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        code_input = document.getElementById("code").value;
+        var user = getCookie("Code_per");
+        if (user != "") {
+            // window.location.href = "Get_1.html";
+        } else {
+            user = number_input;
+            if (user != "" && user != null) {
+                setCookie("Code_per", user, 30);
+                setCookie("code_input", code_input, 30);
+            }
+        }
+    }
+
+    function Go_To() {
+        name_input = document.getElementById("name").value;
+        number_input = document.getElementById("phone").value;
+        prize_input = document.getElementById("prize").value;
+        code_input = document.getElementById("code").value;
+        window.location.href = "Get_1.html";
+        checkCookie();
+        // document.cookie = "name=oeschger";
+
+        // alert(document.cookie);
+    }
+</script>
+</script>
+
+</html>

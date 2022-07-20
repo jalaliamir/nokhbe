@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body class="bg_body_choose" onload="Laod_Data()">
+
+
+    <div class="col-lg-4 main p0">
+        <div class="col-12 first_img p0">
+            <img src="images/back1.png">
+        </div>
+        <div class="choose_el">
+            <div class=" col-lg-12 first_img cat_img get_img p0">
+                <img id="img_top" src="images/Group_1368.png ">
+            </div>
+            <div class="number_top">
+                <span id="numer_t">۱</span>
+            </div>
+
+            <div id="lvl_1" class="text_Get ">
+                <p>
+                    با دعوت از ۵ تا از دوستانت<br> شانس گردونه رو دوباره امتحان کن
+                </p>
+
+                <p>کد معرف:</p>
+            </div>
+            <div id="lvl_2" class="text_Get ">
+                <div class="code_s">
+                    <span><span id="numer_use">۲</span> نفر از ۴ نفر</span>
+                    <ul>
+                        <li id="s_1"></li>
+                        <li id="s_2"></li>
+                        <li id="s_3"></li>
+                        <li id="s_4"></li>
+                    </ul>
+                </div>
+
+                <p>کد معرف:</p>
+            </div>
+            <div id="lvl_3" class="text_Get">
+                <div class="code_s lvl_3">
+                    <ul>
+                        <li id="s_1_5"></li>
+                        <li id="s_2_5"></li>
+                        <li id="s_3_5"></li>
+                        <li id="s_4_5"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="link_cat">
+
+            </div>
+            <div id="share_btn" onclick="share()" class="go_to_next_page go_to_next_page_get">
+                <span id="Share_txt"></span>
+                <img src="images/Share_png.png" alt="">
+            </div>
+            <div id="go_to_wheel_btn" class="go_to_next_page go_to_next_page_get go_to_next_page_wheel tx_al_ce">
+                <a href="Wheel.html">برو به گردونه</a>
+            </div>
+
+            <div class="text_cat_call ">
+                <p>
+                    شماره تماس نخبه پروران:<br> 02137738393
+
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Script -->
+<script>
+    var a = "HEv65NZ4Rt7hLTW";
+    $.getJSON('https://homa.agency/nokhbe_parvaran/finder.php?code=' + a, function(data) {
+        // JSON result in `data` variable
+        alert(data[0]);
+    });
+    // alert(webkitURL["https://homa.agency/nokhbe_parvaran/finder.php?code=" + a]);
+</script>
+<script>
+    var Code_m = 0;
+    checkCookie();
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+
+    function share() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("Share_txt"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges(); // to deselect
+        alert("کد معرف آماده اشتراک گذاری است");
+    }
+
+    function Laod_Data() {
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        // JSON Reading
+        var data_json = [{
+            "name": "\u0646\u0648\u06cc\u062f",
+            "phone": "09184024594",
+            "prize": "Dollar",
+            "time": "0000-00-00",
+            "id": "8",
+            "code": "0",
+            "friends": "0"
+        }, {
+            "name": "\u0639\u0644\u06cc \u0646\u0645\u0627\u0632\u06cc",
+            "phone": "0912",
+            "prize": "%",
+            "time": "0000-00-00",
+            "id": "7",
+            "code": "0",
+            "friends": "0"
+        }, {
+            "name": "\u0645\u062c\u06cc\u062f",
+            "phone": "09184024594",
+            "prize": "Book",
+            "time": "0000-00-00",
+            "id": "9",
+            "code": "0",
+            "friends": "0"
+        }, {
+            "name": "\u0639\u0644\u06cc",
+            "phone": "09184024594",
+            "prize": "Book",
+            "time": "0000-00-00",
+            "id": "10",
+            "code": "0",
+            "friends": "0"
+        }, {
+            "name": "\u0646\u0648\u06cc\u062f",
+            "phone": "09184024594",
+            "prize": "Dollar",
+            "time": "2020-09-06",
+            "id": "11",
+            "code": "2191",
+            "friends": "0"
+        }, {
+            "name": "\u0646\u0648\u06cc\u062f",
+            "phone": "09184024594",
+            "prize": "%",
+            "time": "2020-09-07",
+            "id": "12",
+            "code": "4144",
+            "friends": "2"
+        }, {
+            "name": "navida",
+            "phone": "a",
+            "prize": "a",
+            "time": "2020-09-07",
+            "id": "13",
+            "code": "1",
+            "friends": ""
+        }, {
+            "name": "navida",
+            "phone": "a",
+            "prize": "a",
+            "time": "2020-09-07",
+            "id": "14",
+            "code": "a",
+            "friends": ""
+        }, {
+            "name": "\u0646\u0648\u06cc\u062f",
+            "phone": "09184024594",
+            "prize": "a",
+            "time": "2020-09-07",
+            "id": "15",
+            "code": "a",
+            "friends": ""
+        }, {
+            "name": "a",
+            "phone": "a",
+            "prize": "a",
+            "time": "2020-09-07",
+            "id": "16",
+            "code": "1",
+            "friends": ""
+        }]
+
+        // Find friends for Code That
+        function findId(data_json, Code_p) {
+            var categoryArray = data_json;
+            for (var i = 0; i < categoryArray.length; i++) {
+                if (categoryArray[i].code == Code_p) {
+                    return (categoryArray[i]);
+                }
+            }
+        }
+
+        var item = findId(data_json, 4144);
+        var State = item.friends;
+
+
+        if (State == 0) {
+            document.getElementById("Share_txt").innerHTML = Code_m;
+        }
+        if (State > 0 & State < 4) {
+            document.getElementById("numer_use").innerHTML = State;
+            document.getElementById("Share_txt").innerHTML = Code_m;
+            document.getElementById("lvl_1").style.display = "none";
+            document.getElementById("lvl_2").style.display = "block";
+            // fill the states
+            if (State == 1) {
+                document.getElementById("s_1").style.backgroundColor = "#6DD7D7";
+            }
+            if (State == 2) {
+                document.getElementById("s_1").style.backgroundColor = "#6DD7D7";
+                document.getElementById("s_2").style.backgroundColor = "#6DD7D7";
+            }
+            if (State == 3) {
+                document.getElementById("s_3").style.backgroundColor = "#6DD7D7";
+                document.getElementById("s_1").style.backgroundColor = "#6DD7D7";
+                document.getElementById("s_2").style.backgroundColor = "#6DD7D7";
+            }
+        }
+        if (State == 4) {
+            document.getElementById("img_top").src = "images/Gold_number.png";
+            document.getElementById("numer_t").innerHTML = "2";
+            document.getElementById("numer_t").style.color = "#FDEF35";
+            document.getElementById("lvl_1").style.display = "none";
+            document.getElementById("share_btn").style.display = "none";
+            document.getElementById("go_to_wheel_btn").style.display = "block";
+            document.getElementById("lvl_3").style.display = "block";
+            // fill the states
+            document.getElementById("s_3_5").style.backgroundColor = "#6DD7D7";
+            document.getElementById("s_1_5").style.backgroundColor = "#6DD7D7";
+            document.getElementById("s_2_5").style.backgroundColor = "#6DD7D7";
+            document.getElementById("s_4_5").style.backgroundColor = "#6DD7D7";
+            sessionStorage.setItem('out_1', '');
+            sessionStorage.setItem('out_2', '');
+            sessionStorage.setItem('out_3', '');
+            sessionStorage.setItem('out_1_c', 'rgb(253,239,53,0)');
+            sessionStorage.setItem('out_2_c', 'rgb(253,239,53,0)');
+            sessionStorage.setItem('out_3_c', 'rgb(253,239,53,0)');
+        }
+    }
+
+    function setCookie(cname, result, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + result + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                alert(c);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        var user = getCookie("Code_per");
+        if (user != "") {
+            // window.location.href = "Get_1.html";
+            Code_m = user;
+        } else {
+            if (user != "" && user != null) {
+                setCookie("Code_per", user, 30);
+            }
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,78 @@
+body {
+    background-color: #403736;
+    /* font-family: Arial; */
+    color: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#canvas {
+    /*border: 1px solid red;*/
+    cursor: pointer;
+    background-color: #686BB0;
+    border-radius: 30px;
+    /* border: 3px solid black; */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* -webkit-tap-highlight-color: transparent; */
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+.box {
+    display: inline-block;
+    vertical-align: top;
+    /*border: 1px solid red;*/
+    margin: 8px;
+}
+
+#left {
+    width: 140px;
+    /*border: 1px solid red;*/
+    float: left;
+    color: #e4296d;
+    text-align: end;
+}
+
+#right {
+    float: right;
+    color: #ffd432;
+    width: 140px;
+}
+
+.imagen {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+#humano {
+    background-color: #E4296D;
+}
+
+#robot {
+    background-color: #FFD432;
+}
+
+.puntua {
+    font-size: 14px;
+    font-weight: bold;
+    display: contents;
+}
+
+.label {
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}

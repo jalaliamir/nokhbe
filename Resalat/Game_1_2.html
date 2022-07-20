@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body onload="show_all()" class="bg_body_game">
+
+    <div class="col-lg-4 main p0">
+        <div class="col-12 first_img p0">
+            <img src="images/bg_game.png">
+        </div>
+        <div class="choose_el m_0_0">
+
+            <div class="code_befor lvl_befor">
+                <ul>
+                    <li id="s_2_5" class=""></li>
+                    <li id="s_1_5" class=""></li>
+                    <li id="s_3_5" class=""></li>
+                </ul>
+            </div>
+
+            <div class="game_window">
+                <div class="game_line_2_1">
+                    <ul>
+                        <li id="fall_down">
+                            <input id="X_vlaue" type="tel" value="?">
+                        </li>
+                    </ul>
+                </div>
+                <div class="game_line_2">
+                    <ul>
+                        <li onclick="change_value_X(3)" id="fall_down_1">
+                            <input type="tel" value="3" disabled>
+                        </li>
+                        <li onclick="change_value_X(2)" id="fall_down_2">
+                            <input type="tel" value="2" disabled>
+                        </li>
+                        <li onclick="change_value_X(1)" id="fall_down_3">
+                            <input type="tel" value="1" disabled>
+                        </li>
+                    </ul>
+                </div>
+                <div class="game_line_2">
+                    <ul>
+                        <li onclick="change_value_X(6)" id="fall_down_3">
+                            <input type="tel" value="6" disabled>
+                        </li>
+                        <li onclick="change_value_X(5)" id="fall_down_4">
+                            <input type="tel" value="5" disabled>
+                        </li>
+                        <li onclick="change_value_X(4)" id="fall_down_5">
+                            <input type="tel" value="4" disabled>
+                        </li>
+                    </ul>
+                </div>
+                <div class="game_line_2">
+                    <ul>
+                        <li onclick="change_value_X(9)" id="fall_down_6">
+                            <input type="tel" value="9" disabled>
+                        </li>
+                        <li onclick="change_value_X(8)" id="fall_down_7">
+                            <input type="tel" value="8" disabled>
+                        </li>
+                        <li onclick="change_value_X(7)" id="fall_down_8">
+                            <input type="tel" value="7" disabled>
+                        </li>
+                    </ul>
+                </div>
+                <div class="game_line_2 bg_li_2_2">
+                    <ul>
+                        <li onclick="Delete_All()" id="fall_down_10">
+                            <input type="tel" value="X" disabled>
+                        </li>
+                        <li onclick="change_value_X(0)" id="fall_down_11">
+                            <input type="tel" value="0" disabled>
+                        </li>
+                        <li onclick="show_again()" id="fall_down_12" class="return_img">
+                            <img src="images/return.png">
+                        </li>
+                    </ul>
+                </div>
+                <div class="game_line">
+                    <ul>
+                        <li id="check_val" onclick="check_val()">
+                            <img id="tik_btn" src="images/Tik.png" alt="">
+                            <img id="tik_btn_2" src="images/tik_2.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info_window ">
+                <p>عددها رو از بین حرف ها پیدا کن</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Script -->
+<script>
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+    var end = 0;
+    var empty = 0;
+    var round = 0;
+    var succeed = 0;
+    var num_array = [];
+    var num_game_1 = 0;
+    var num_game_2 = 0;
+    var num_game_3 = 0;
+
+    function num_random() {
+        for (let index = 0; index < 2; index++) {
+            num_array[index] = Math.floor((Math.random() * 10));
+        }
+    }
+
+    function show_all() {
+        // end = 0;
+        var out_1 = sessionStorage.getItem('out_1');
+        if (out_1 == '') {
+            document.getElementById("s_2_5").style.backgroundColor = "#00ff00";
+        } else {
+            document.getElementById("s_2_5").style.backgroundColor = "#ff0000";
+        }
+        document.getElementById("s_1_5").style.backgroundColor = "#6DD7D7";
+        if (end == 0) {
+            if (round == 0) {
+                num_random();
+                num_game_1 = num_array.join("");
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "?";
+                }, 300);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "L";
+                }, 1000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "U";
+                }, 1500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = num_array[0];
+                    document.getElementById("X_vlaue").style.color = "#E6296D";
+                }, 2000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "N";
+                    document.getElementById("X_vlaue").style.color = "#000";
+                }, 2500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "A";
+                }, 3000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = num_array[1];
+                    document.getElementById("X_vlaue").style.color = "#E6296D";
+                }, 3500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "?";
+                    document.getElementById("X_vlaue").style.color = "#000";
+                    empty = 0;
+                }, 4000);
+                setTimeout(function() {
+                    end = 1;
+                }, 4100);
+            }
+            if (round == 1) {
+                num_random();
+                num_game_2 = num_array.join("");
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "?";
+                }, 300);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "N";
+                }, 1500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = num_array[0];
+                    document.getElementById("X_vlaue").style.color = "#E6296D";
+                }, 2000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "A";
+                    document.getElementById("X_vlaue").style.color = "#000";
+                }, 2500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "V";
+                }, 3000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = num_array[1];
+                    document.getElementById("X_vlaue").style.color = "#E6296D";
+                }, 3500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "I";
+                    document.getElementById("X_vlaue").style.color = "#000";
+                }, 4000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "D";
+                }, 4500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "?";
+                    empty = 0;
+                }, 5000);
+                setTimeout(function() {
+                    end = 1;
+                }, 5100);
+            }
+            if (round == 2) {
+                num_random();
+                num_game_3 = num_array.join("");
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "?";
+                }, 300);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "V";
+                }, 1500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "E";
+                }, 2000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = num_array[0];
+                    document.getElementById("X_vlaue").style.color = "#E6296D";
+                }, 2500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "N";
+                    document.getElementById("X_vlaue").style.color = "#000";
+                }, 3000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = num_array[1];
+                    document.getElementById("X_vlaue").style.color = "#E6296D";
+                }, 3500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "U";
+                    document.getElementById("X_vlaue").style.color = "#000";
+                }, 4000);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "S";
+                }, 4500);
+                setTimeout(function() {
+                    document.getElementById("X_vlaue").value = "?";
+                    empty = 0;
+                }, 5000);
+                setTimeout(function() {
+                    end = 1;
+                }, 5100);
+            }
+        }
+    }
+
+    function show_again() {
+        if (end == 1) {
+            end = 0;
+            show_all();
+        } else {
+            return false;
+        }
+    }
+
+    function change_value_X(val) {
+        if (end == 1) {
+            if (empty == 0) {
+                document.getElementById("X_vlaue").value = "";
+                var old_val = document.getElementById("X_vlaue").value;
+                empty = 1;
+            } else {
+                var old_val = document.getElementById("X_vlaue").value;
+            }
+            old_val += val;
+            document.getElementById("X_vlaue").value = old_val;
+        }
+    }
+
+    function Delete_All() {
+        if (end == 1) {
+            document.getElementById("X_vlaue").value = "?";
+            empty = 0;
+        }
+    }
+
+    function check_val() {
+        document.getElementById("tik_btn").style.display = "none";
+        document.getElementById("tik_btn_2").style.display = "block";
+        setTimeout(function() {
+            document.getElementById("tik_btn").style.display = "block";
+            document.getElementById("tik_btn_2").style.display = "none";
+        }, 200);
+        if (end == 1) {
+            if (document.getElementById("X_vlaue").value != "?") {
+
+                if (round == 2) {
+                    var check_val_3 = document.getElementById("X_vlaue").value;
+                    if (check_val_3 == num_game_3) {
+                        succeed++;
+                    }
+                    if (succeed > 1) {
+                        sessionStorage.setItem('out_2', '');
+                        sessionStorage.setItem('out_2_c', 'rgb(253,239,53,0)');
+                        document.getElementById("s_1_5").style.backgroundColor = "#00ff00";
+                        setTimeout(function() {
+                            window.location.href = "Game_1_3_befor.html "
+                        }, 300);
+                    } else {
+                        sessionStorage.setItem('out_2', 'پوچ');
+                        sessionStorage.setItem('out_2_c', 'rgb(253,210,49,0.6)');
+                        document.getElementById("s_1_5").style.backgroundColor = "#ff0000";
+                        setTimeout(function() {
+                            window.location.href = "Game_1_3_befor.html "
+                        }, 300);
+                    }
+                }
+                if (round == 1) {
+                    var check_val_2 = document.getElementById("X_vlaue").value;
+                    if (check_val_2 == num_game_2) {
+                        succeed++;
+                    }
+                    round++;
+                    end = 0;
+                    show_all();
+                }
+                if (round == 0) {
+                    var check_val_1 = document.getElementById("X_vlaue").value;
+                    if (check_val_1 == num_game_1) {
+                        succeed++;
+                    }
+                    round++;
+                    end = 0;
+                    show_all();
+                    // break;
+                }
+            }
+        }
+    }
+</script>
+
+</html>

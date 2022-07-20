@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body class="bg_body_enter">
+    <div class="col-lg-4 main p0">
+        <div class="col-12 first_img p0">
+            <img src="images/back3.png">
+        </div>
+        <div class="choose_el">
+
+            <div class="text_cat enter_code">
+                <p>
+                    با وارد کردن کد معرفت شانست رو بیشتر کن
+                </p>
+            </div>
+            <form>
+
+                <div class="link_cat code_input ">
+                    <input type="text " placeholder="کد معرف . . . ">
+                </div>
+                <div onclick="Go_To() " class="go_to_next_page p_15_120 submite_btn ">
+                    <input type="submit " value="برو به گردونه ">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+<script src="js/jquery-3.5.1.min.js "></script>
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Script -->
+<script>
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+
+    function Go_To() {
+        window.location.href = "Wheel.html ";
+    }
+</script>
+
+</html>

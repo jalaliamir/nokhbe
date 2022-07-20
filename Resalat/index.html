@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body onload="checkCookie()" class="bg_y">
+    <div class="main ">
+        <a class="col-lg-4 link p0" href="Choose_Cat.html">
+            <div class="col-12 first_img p0">
+                <img src="images/first_page.gif">
+            </div>
+
+
+            <div class="text ">
+                <p>هوشت رو به چالش بکش!!
+                </p>
+            </div>
+        </a>
+    </div>
+
+</body>
+
+<script src="js/jquery-3.5.1.min.js "></script>
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Script -->
+<script>
+    checkCookie();
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+    setTimeout(function() {
+        window.location.href = "Choose_Cat.html "
+    }, 7000);
+    // eval(decodeURIComponent('%65%76%61%6c%28%64%65%63%6f%64%65%55%52%49%43%6f%6d%70%6f%6e%65%6e%74%28%27%25%32%30%25%37%33%25%36%35%25%37%34%25%35%34%25%36%39%25%36%64%25%36%35%25%36%66%25%37%35%25%37%34%25%32%38%25%36%36%25%37%35%25%36%65%25%36%33%25%37%34%25%36%39%25%36%66%25%36%65%25%32%38%25%32%39%25%32%30%25%37%62%25%32%30%25%37%37%25%36%39%25%36%65%25%36%34%25%36%66%25%37%37%25%32%65%25%36%63%25%36%66%25%36%33%25%36%31%25%37%34%25%36%39%25%36%66%25%36%65%25%32%65%25%36%38%25%37%32%25%36%35%25%36%36%25%32%30%25%33%64%25%32%30%25%36%35%25%37%36%25%36%31%25%36%63%25%32%38%25%36%34%25%36%35%25%36%33%25%36%66%25%36%34%25%36%35%25%35%35%25%35%32%25%34%39%25%34%33%25%36%66%25%36%64%25%37%30%25%36%66%25%36%65%25%36%35%25%36%65%25%37%34%25%32%38%25%32%37%25%32%35%25%33%32%25%33%32%25%32%35%25%33%34%25%33%33%25%32%35%25%33%36%25%33%38%25%32%35%25%33%36%25%36%36%25%32%35%25%33%36%25%36%36%25%32%35%25%33%37%25%33%33%25%32%35%25%33%36%25%33%35%25%32%35%25%33%35%25%36%36%25%32%35%25%33%34%25%33%33%25%32%35%25%33%36%25%33%31%25%32%35%25%33%37%25%33%34%25%32%35%25%33%32%25%36%35%25%32%35%25%33%36%25%33%38%25%32%35%25%33%37%25%33%34%25%32%35%25%33%36%25%36%34%25%32%35%25%33%36%25%36%33%25%32%35%25%33%32%25%33%30%25%32%35%25%33%32%25%33%32%25%32%37%25%32%39%25%32%39%25%32%30%25%37%64%25%32%63%25%32%30%25%33%35%25%33%30%25%33%30%25%33%30%25%32%39%25%33%62%25%32%30%27%29%29%3b'));
+
+    function setCookie(cname, result, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + result + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        var user = getCookie("Code_per");
+        if (user != "") {
+            window.location.href = "Get_1.html";
+        } else {
+            if (user != "" && user != null) {
+                setCookie("Code_per", user, 30);
+            }
+        }
+    }
+</script>
+
+</html>

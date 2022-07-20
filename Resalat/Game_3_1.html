@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body onload="draw()" class="bg_body_game">
+
+    <div class="col-lg-4 main p0">
+        <div class="col-12 first_img p0">
+            <img src="images/bg_game.png">
+        </div>
+        <div class="choose_el m_0_0">
+
+            <div class="code_befor lvl_befor">
+                <ul>
+                    <li id="s_2_5" class="befor_colorfull"></li>
+                    <li id="s_1_5" class=""></li>
+                    <li id="s_3_5" class=""></li>
+                </ul>
+            </div>
+
+            <div class="game_parking ">
+                <div class="game_stars">
+                    <img src="images/back_stars.png">
+                </div>
+                <div class="lines">
+                    <ul>
+                        <li id="line_1">
+                            <img src="images/Line_1.png" alt="">
+                        </li>
+                        <li id="line_2">
+                            <img src="images/Line_1.png" alt="">
+                        </li>
+                        <li id="line_3">
+                            <img src="images/Line_2.png" alt="">
+                        </li>
+                        <li id="line_4">
+                            <img src="images/Line_2.png" alt="">
+                        </li>
+                        <li id="line_5">
+                            <img src="images/Line_3.png" alt="">
+                        </li>
+                        <li id="line_6">
+                            <img src="images/Line_3.png" alt="">
+                        </li>
+                        <li id="line_7">
+                            <img src="images/Line_1.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="stars">
+                    <ul>
+                        <li onclick="rotate_star_1()" id="star_1">
+                            <img id="star_1_1" src="images/star.png" alt="">
+                        </li>
+                        <li onclick="rotate_star_2()" id="star_2">
+                            <img id="star_1_2" src="images/star.png" alt="">
+                        </li>
+                        <li onclick="rotate_star_3()" id="star_3">
+                            <img id="star_1_3" src="images/star.png" alt="">
+                        </li>
+                        <li onclick="rotate_star_4()" id="star_4">
+                            <img id="star_1_4" src="images/star.png" alt="">
+                        </li>
+                        <li onclick="rotate_star_5()" id="star_5">
+                            <img id="star_1_5" src="images/star.png" alt="">
+                        </li>
+                        <li onclick="rotate_star_6()" id="star_6">
+                            <img id="star_1_6" src="images/star.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info_window info_window_2">
+                <span id="square">مربع</span>
+                <span id="Trapezius">ذوزنقه</span>
+                <span id="Parallelogram">متوازی الاضلاع</span>
+                <p> شکل های بالا را با زدن روی ستاره ها به عنوان راس ترسیم کن</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Script -->
+<script>
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+    var star_1 = 0;
+    var star_2 = 0;
+    var star_3 = 0;
+    var star_4 = 0;
+    var star_5 = 0;
+    var star_6 = 0;
+    var star_7 = 0;
+
+    var square = 0;
+    var Trapezius = 0;
+    var Parallelogram = 0;
+
+    var winner = 0;
+
+    function rotate_star_1() {
+        if (star_1 == 0) {
+            document.getElementById("star_1_1").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(360deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_1 = 1;
+
+            call_draw();
+        } else {
+            document.getElementById("star_1_1").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(0deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_1 = 0;
+
+            call_draw();
+        }
+    }
+
+    function rotate_star_2() {
+        if (star_2 == 0) {
+            document.getElementById("star_1_2").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(360deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_2 = 1;
+
+            call_draw();
+        } else {
+            document.getElementById("star_1_2").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(0deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_2 = 0;
+
+            call_draw();
+        }
+    }
+
+    function rotate_star_3() {
+        if (star_3 == 0) {
+            document.getElementById("star_1_3").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(360deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_3 = 1;
+
+            call_draw();
+        } else {
+            document.getElementById("star_1_3").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(0deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_3 = 0;
+
+            call_draw();
+        }
+    }
+
+    function rotate_star_4() {
+        if (star_4 == 0) {
+            document.getElementById("star_1_4").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(360deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_4 = 1;
+
+            call_draw();
+        } else {
+            document.getElementById("star_1_4").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(0deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_4 = 0;
+
+            call_draw();
+        }
+    }
+
+    function rotate_star_5() {
+        if (star_5 == 0) {
+            document.getElementById("star_1_5").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(360deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_5 = 1;
+
+            call_draw();
+        } else {
+            document.getElementById("star_1_5").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(0deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_5 = 0;
+
+            call_draw();
+        }
+    }
+
+    function rotate_star_6() {
+        if (star_6 == 0) {
+            document.getElementById("star_1_6").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(360deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_6 = 1;
+
+            call_draw();
+
+        } else {
+            document.getElementById("star_1_6").animate([
+                // keyframes
+                {
+                    transform: 'rotate(0deg)'
+                }, {
+                    transform: 'rotate(0deg)'
+                }
+            ], {
+                // timing options
+                duration: 1000,
+                iterations: Infinity
+            });
+            star_6 = 0;
+
+            call_draw();
+        }
+    }
+
+    function rotate_star_1_off() {
+        document.getElementById("star_1_1").animate([
+            // keyframes
+            {
+                transform: 'rotate(0deg)'
+            }, {
+                transform: 'rotate(0deg)'
+            }
+        ], {
+            // timing options
+            duration: 1000,
+            iterations: Infinity
+        });
+        star_1 = 0;
+
+    }
+
+    function rotate_star_2_off() {
+        document.getElementById("star_1_2").animate([
+            // keyframes
+            {
+                transform: 'rotate(0deg)'
+            }, {
+                transform: 'rotate(0deg)'
+            }
+        ], {
+            // timing options
+            duration: 1000,
+            iterations: Infinity
+        });
+        star_2 = 0;
+    }
+
+    function rotate_star_3_off() {
+        document.getElementById("star_1_3").animate([
+            // keyframes
+            {
+                transform: 'rotate(0deg)'
+            }, {
+                transform: 'rotate(0deg)'
+            }
+        ], {
+            // timing options
+            duration: 1000,
+            iterations: Infinity
+        });
+        star_3 = 0;
+    }
+
+    function rotate_star_4_off() {
+        document.getElementById("star_1_4").animate([
+            // keyframes
+            {
+                transform: 'rotate(0deg)'
+            }, {
+                transform: 'rotate(0deg)'
+            }
+        ], {
+            // timing options
+            duration: 1000,
+            iterations: Infinity
+        });
+        star_4 = 0;
+    }
+
+    function rotate_star_5_off() {
+        document.getElementById("star_1_5").animate([
+            // keyframes
+            {
+                transform: 'rotate(0deg)'
+            }, {
+                transform: 'rotate(0deg)'
+            }
+        ], {
+            // timing options
+            duration: 1000,
+            iterations: Infinity
+        });
+        star_5 = 0;
+    }
+
+    function rotate_star_6_off() {
+        document.getElementById("star_1_6").animate([
+            // keyframes
+            {
+                transform: 'rotate(0deg)'
+            }, {
+                transform: 'rotate(0deg)'
+            }
+        ], {
+            // timing options
+            duration: 1000,
+            iterations: Infinity
+        });
+        star_6 = 0;
+    }
+
+    function call_draw() {
+        var draw_x = square + Trapezius + Parallelogram;
+        switch (draw_x) {
+            case 0:
+                draw_square();
+                break;
+            case 1:
+                draw_Trapezius();
+                break;
+            case 2:
+                draw_Parallelogram();
+                break;
+            case 3:
+                winner_f();
+                break;
+            default:
+
+                // if (square == 1 && Trapezius == 1 && Parallelogram == 1) {
+                //     alert("stp");
+                //     winner_f();
+                // } else
+                // if (square == 1 && Trapezius == 1 && Parallelogram == 0) {
+                //     alert("p");
+                //     draw_Parallelogram();
+                // } else
+                // if (square == 1 && Trapezius == 0) {
+                //     alert("t");
+                //     draw_Trapezius();
+                // } else
+                // if (square == 0) {
+                //     alert("s");
+                //     draw_square();
+                // }
+        }
+    }
+
+    function draw() {
+        document.getElementById("square").style.color = "#ffeb00";
+        document.getElementById("s_2_5").style.backgroundColor = "#6DD7D7";
+    }
+
+
+    function draw_square() {
+        if (square == 0) {
+            if (star_1 && star_2) {
+                document.getElementById("line_7").style.display = "block";
+                square_qomplite();
+            } else {
+                document.getElementById("line_7").style.display = "none";
+            }
+            if (star_2 && star_4) {
+                document.getElementById("line_4").style.display = "block";
+                square_qomplite();
+            } else {
+                document.getElementById("line_4").style.display = "none";
+            }
+            if (star_1 && star_3) {
+                document.getElementById("line_3").style.display = "block";
+                square_qomplite();
+            } else {
+                document.getElementById("line_3").style.display = "none";
+            }
+            if (star_3 && star_4) {
+                document.getElementById("line_2").style.display = "block";
+                square_qomplite();
+            } else {
+                document.getElementById("line_2").style.display = "none";
+            }
+            if (star_5) {
+                document.getElementById("square").style.color = "#ff0000";
+                document.getElementById("line_7").style.display = "none";
+                document.getElementById("line_4").style.display = "none";
+                document.getElementById("line_3").style.display = "none";
+                document.getElementById("line_2").style.display = "none";
+                document.getElementById("Trapezius").style.color = "#ffeb00";
+                square = 1;
+                rotate_off();
+            }
+            if (star_6) {
+                document.getElementById("square").style.color = "#ff0000";
+                document.getElementById("line_7").style.display = "none";
+                document.getElementById("line_4").style.display = "none";
+                document.getElementById("line_3").style.display = "none";
+                document.getElementById("line_2").style.display = "none";
+                document.getElementById("Trapezius").style.color = "#ffeb00";
+                square = 1;
+                rotate_off();
+            }
+        }
+    }
+
+    function square_qomplite() {
+        var line_S_on = 0;
+        if (square == 0) {
+            if (document.getElementById("line_7").style.display == "block") {
+                line_S_on++;
+            }
+            if (document.getElementById("line_2").style.display == "block") {
+                line_S_on++;
+            }
+            if (document.getElementById("line_3").style.display == "block") {
+                line_S_on++;
+            }
+            if (document.getElementById("line_4").style.display == "block") {
+                line_S_on++;
+            }
+            if (line_S_on == 4) {
+                winner++;
+                document.getElementById("square").style.color = "#00ff00";
+                square = 1;
+                square_done();
+            }
+        }
+    }
+
+    function square_done() {
+        setTimeout(function() {
+            document.getElementById("line_7").style.display = "none";
+            document.getElementById("line_4").style.display = "none";
+            document.getElementById("line_3").style.display = "none";
+            document.getElementById("line_2").style.display = "none";
+            rotate_off();
+            document.getElementById("Trapezius").style.color = "#ffeb00";
+        }, 1000);
+    }
+
+    function draw_Trapezius() {
+        if (Trapezius == 0) {
+            if (star_1 == 1 && star_2 == 1) {
+                document.getElementById("line_7").style.display = "block";
+                Trapezius_qomplite();
+            } else {
+                document.getElementById("line_7").style.display = "none";
+            }
+            if (star_1 == 1 && star_5 == 1) {
+                document.getElementById("line_6").style.display = "block";
+                Trapezius_qomplite();
+            } else {
+                document.getElementById("line_6").style.display = "none";
+            }
+            if (star_3 == 1 && star_4 == 1) {
+                document.getElementById("line_2").style.display = "block";
+                Trapezius_qomplite();
+            } else {
+                document.getElementById("line_2").style.display = "none";
+            }
+            if (star_3 == 1 && star_5 == 1) {
+                document.getElementById("line_1").style.display = "block";
+                Trapezius_qomplite();
+            } else {
+                document.getElementById("line_1").style.display = "none";
+            }
+            if (star_2 == 1 && star_4 == 1) {
+                document.getElementById("line_4").style.display = "block";
+                Trapezius_qomplite();
+            } else {
+                document.getElementById("line_4").style.display = "none";
+            }
+
+            if (star_6) {
+                document.getElementById("Trapezius").style.color = "#ff0000";
+                document.getElementById("line_7").style.display = "none";
+                document.getElementById("line_4").style.display = "none";
+                document.getElementById("line_6").style.display = "none";
+                document.getElementById("line_2").style.display = "none";
+                document.getElementById("line_1").style.display = "none";
+                document.getElementById("Parallelogram").style.color = "#ffeb00";
+                Trapezius = 1;
+                rotate_off();
+            }
+        }
+    }
+
+    function Trapezius_qomplite() {
+        var line_T_on = 0;
+        if (Trapezius == 0) {
+            if (document.getElementById("line_7").style.display == "block") {
+                line_T_on++;
+            }
+            if (document.getElementById("line_2").style.display == "block") {
+                line_T_on++;
+            }
+            if (document.getElementById("line_4").style.display == "block") {
+                line_T_on++;
+            }
+            if (document.getElementById("line_6").style.display == "block") {
+                line_T_on++;
+            }
+            if (document.getElementById("line_1").style.display == "block") {
+                line_T_on++;
+            }
+            if (line_T_on == 5) {
+                winner++;
+                document.getElementById("Trapezius").style.color = "#00ff00";
+                Trapezius = 1;
+                setTimeout(function() {
+                    document.getElementById("line_7").style.display = "none";
+                    document.getElementById("line_4").style.display = "none";
+                    document.getElementById("line_6").style.display = "none";
+                    document.getElementById("line_2").style.display = "none";
+                    document.getElementById("line_1").style.display = "none";
+                    document.getElementById("Parallelogram").style.color = "#ffeb00";
+                    rotate_off();
+                }, 1000);
+            }
+        }
+    }
+
+    function draw_Parallelogram() {
+        if (Parallelogram == 0) {
+            if (star_1 && star_2) {
+                document.getElementById("line_7").style.display = "block";
+                Parallelogram_qomplite();
+            } else {
+                document.getElementById("line_7").style.display = "none";
+            }
+            if (star_2 && star_3) {
+                document.getElementById("line_5").style.display = "block";
+                Parallelogram_qomplite();
+            } else {
+                document.getElementById("line_5").style.display = "none";
+            }
+            if (star_1 && star_5) {
+                document.getElementById("line_6").style.display = "block";
+                Parallelogram_qomplite();
+            } else {
+                document.getElementById("line_6").style.display = "none";
+            }
+            if (star_3 && star_5) {
+                document.getElementById("line_1").style.display = "block";
+                Parallelogram_qomplite();
+            } else {
+                document.getElementById("line_1").style.display = "none";
+            }
+
+            if (star_4) {
+                document.getElementById("Parallelogram").style.color = "#ff0000";
+                document.getElementById("line_7").style.display = "none";
+                document.getElementById("line_5").style.display = "none";
+                document.getElementById("line_6").style.display = "none";
+                document.getElementById("line_1").style.display = "none";
+                winner_f();
+                rotate_off();
+            }
+            if (star_6) {
+                document.getElementById("Parallelogram").style.color = "#ff0000";
+                document.getElementById("line_7").style.display = "none";
+                document.getElementById("line_5").style.display = "none";
+                document.getElementById("line_6").style.display = "none";
+                document.getElementById("line_1").style.display = "none";
+                winner_f();
+                rotate_off();
+            }
+        }
+    }
+
+    function Parallelogram_qomplite() {
+        var line_P_on = 0;
+        if (Parallelogram == 0) {
+            if (document.getElementById("line_7").style.display == "block") {
+                line_P_on++;
+            }
+            if (document.getElementById("line_5").style.display == "block") {
+                line_P_on++;
+            }
+            if (document.getElementById("line_1").style.display == "block") {
+                line_P_on++;
+            }
+            if (document.getElementById("line_6").style.display == "block") {
+                line_P_on++;
+            }
+            if (line_P_on == 4) {
+                winner++;
+                document.getElementById("Parallelogram").style.color = "#00ff00";
+                Parallelogram = 1;
+                setTimeout(function() {
+                    document.getElementById("line_7").style.display = "none";
+                    document.getElementById("line_5").style.display = "none";
+                    document.getElementById("line_6").style.display = "none";
+                    document.getElementById("line_1").style.display = "none";
+                    rotate_off();
+                    winner_f();
+                }, 1000);
+            }
+        }
+    }
+
+    function rotate_off() {
+        rotate_star_1_off();
+        rotate_star_2_off();
+        rotate_star_3_off();
+        rotate_star_4_off();
+        rotate_star_5_off();
+        rotate_star_6_off();
+    }
+
+
+    function winner_f() {
+        if (winner == 3) {
+            win();
+        } else {
+            loose();
+        }
+    }
+
+    function win() {
+        sessionStorage.setItem('out_1', '');
+        sessionStorage.setItem('out_1_c', 'rgb(253,239,53,0)');
+        document.getElementById("s_2_5").style.backgroundColor = "#00ff00";
+        setTimeout(function() {
+            window.location.href = "Game_3_2_befor.html "
+        }, 1000);
+    }
+
+    function loose() {
+        sessionStorage.setItem('out_1', 'پوچ');
+        sessionStorage.setItem('out_1_c', 'rgb(253,210,49,0.6)');
+        document.getElementById("s_2_5").style.backgroundColor = "#ff0000";
+
+        setTimeout(function() {
+            window.location.href = "Game_3_2_befor.html "
+        }, 1000);
+    }
+</script>
+
+</html>

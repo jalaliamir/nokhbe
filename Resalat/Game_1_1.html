@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body onload="get_color()" class="bg_body_game">
+
+    <div class="col-lg-4 main p0">
+        <div class="col-12 first_img p0">
+            <img src="images/bg_game.png">
+        </div>
+        <div class="choose_el m_0_0">
+
+            <div class="code_befor lvl_befor">
+                <ul>
+                    <li id="s_2_5" class="befor_colorfull"></li>
+                    <li id="s_1_5" class=""></li>
+                    <li id="s_3_5" class=""></li>
+                </ul>
+            </div>
+
+            <div class="game_parking">
+                <div class="game_park">
+                    <img src="images/parking_back.png">
+                </div>
+                <div class="park_car">
+                    <ul>
+                        <li onclick="car_1_0_left()" id="car_1_0">
+                            <img src="images/car_1_0.png" alt="">
+                        </li>
+                        <li onclick="car_1_1_left()" id="car_1_1">
+                            <img src="images/car_1_1.png" alt="">
+                        </li>
+                        <li id="car_1_2">
+                            <img src="images/car_1_2.png" alt="">
+                        </li>
+                        <li id="car_1_3">
+                            <img src="images/car_1_3.png" alt="">
+                        </li>
+                        <li id="car_1_4">
+                            <img src="images/car_1_4.png" alt="">
+                        </li>
+                        <li id="car_1_5">
+                            <img src="images/car_1_5.png" alt="">
+                        </li>
+                        <li id="car_1_6">
+                            <img src="images/car_1_6.png" alt="">
+                        </li>
+                        <li id="car_1_7">
+                            <img src="images/car_1_7.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info_window ">
+                <p>روی ماشین ها بزن تا حرکت کنن و جا برای یک ماشین دیگه باز بشه</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Script -->
+<script>
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+    var car_1_0_gone = 0;
+    var car_1_0_right = 0;
+    var car_1_1_top = 0;
+
+
+    function get_color() {
+        document.getElementById("s_2_5").style.backgroundColor = "#6DD7D7";
+        setTimeout(function() {
+            sessionStorage.setItem('out_1', 'پوچ');
+            sessionStorage.setItem('out_1_c', 'rgb(253,210,49,0.6)');
+            document.getElementById("s_2_5").style.backgroundColor = "#ff0000";
+            window.location.href = "Game_2_2_befor.html "
+        }, 15000);
+    }
+
+    function car_1_0_left() {
+        if (car_1_1_top == 0) {
+            if (car_1_0_right == 0) {
+                var elem = document.getElementById("car_1_0");
+                var pos = 0;
+                var id = setInterval(frame, 5);
+
+                function frame() {
+                    if (pos == 80) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        //   elem.style.top = pos + "px"; 
+                        elem.style.right = pos + "px";
+                    }
+                }
+                car_1_0_right = 1;
+                car_1_0_gone = 1;
+            } else {
+                var elem = document.getElementById("car_1_0");
+                var pos = 0;
+                var id = setInterval(frame, 5);
+
+                function frame() {
+                    if (pos == 1) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        //   elem.style.top = pos + "px"; 
+                        elem.style.right = -pos + "px";
+                    }
+                }
+                car_1_0_right = 0;
+                car_1_0_gone = 0;
+            }
+        }
+    }
+
+    function car_1_1_left() {
+        if (car_1_0_gone == 1) {
+            if (car_1_1_top == 0) {
+                var elem = document.getElementById("car_1_1");
+                var pos = 0;
+                var id = setInterval(frame, 5);
+
+                function frame() {
+                    if (pos == 80) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        elem.style.top = -pos + "px";
+                        // elem.style.right = pos + "px";
+                    }
+                }
+                car_1_7_go_in();
+                car_1_1_top = 1;
+
+            } else {
+                var elem = document.getElementById("car_1_1");
+                var pos = 0;
+                var id = setInterval(frame, 5);
+
+                function frame() {
+                    if (pos == 1) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        elem.style.top = pos + "px";
+                        // elem.style.right = pos + "px";
+                    }
+                }
+
+                car_1_1_top = 0;
+            }
+        }
+
+    }
+
+    function car_1_7_go_in() {
+
+        setTimeout(function() {
+            play_s();
+        }, 500);
+        setTimeout(function() {
+            win_you();
+        }, 2000);
+    }
+
+    function win_you() {
+        document.getElementById("car_1_7").style.display = "block";
+        var elem = document.getElementById("car_1_7");
+        var pos = 0;
+        var id = setInterval(frame, 5);
+
+        function frame() {
+            if (pos == 200) {
+                clearInterval(id);
+            } else {
+                pos++;
+                //   elem.style.top = pos + "px"; 
+                elem.style.right = pos + "px";
+            }
+        }
+        document.getElementById("s_2_5").style.backgroundColor = "#00ff00";
+        sessionStorage.setItem('out_1', '');
+        sessionStorage.setItem('out_1_c', 'rgb(253,239,53,0)');
+        setTimeout(function() {
+            window.location.href = "Game_1_2_befor.html "
+        }, 2000);
+    }
+
+    function play_s() {
+        var song = new Audio();
+        song.src = 'sound/win.mp3';
+        song.play();
+
+    }
+</script>
+
+</html>

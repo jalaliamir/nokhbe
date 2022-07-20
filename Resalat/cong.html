@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body onload="get_prize()" class="bg_w">
+    <div class="main ">
+        <a class="col-lg-4 link p0">
+            <div class="col-12 first_img bg_sun p0">
+                <img src="images/Group_2279.png">
+            </div>
+
+
+
+            <div class=" txt_cong ">
+                <p id="prize_txt_w">تبریک!<br>
+                </p>
+                <span id="prize_txt">پوچ</span>
+            </div>
+        </a>
+
+
+        <div onclick="go_to_info()" class="get_prize ">
+            <p>جایزت رو بگیر</p>
+        </div>
+</body>
+
+<script src="js/jquery-3.5.1.min.js "></script>
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Script -->
+<script>
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+
+    function get_prize() {
+
+        var prize = sessionStorage.getItem('winningInnerSegment');
+        if (prize == "پوچ ") {
+            document.getElementById("prize_txt_w").innerHTML = "پوچ ";
+            document.getElementById("prize_txt").style.color = "";
+        } else {
+            if (prize == 'یک دلار') {
+                document.getElementById("prize_txt").innerHTML = "یک دلار ";
+            }
+            if (prize == 'دیجی بن') {
+                document.getElementById("prize_txt").innerHTML = "دیجی بن ۲۰ تومان ";
+            }
+            if (prize == 'بسته اینترنت') {
+                document.getElementById("prize_txt").innerHTML = "بسته اینترنت همراه اول / ایرانسل ";
+            }
+            if (prize == 'کتاب هوش') {
+                document.getElementById("prize_txt").innerHTML = "بن خرید کتاب هوش ";
+            }
+            if (prize == 'یک جلسه کلاس') {
+                document.getElementById("prize_txt").innerHTML = "شرکت در جلسه اول کلاسها به صورت رایگان ";
+            }
+            if (prize == 'پوچ') {
+                document.getElementById("prize_txt_w").innerHTML = "پوچ ";
+                document.getElementById("prize_txt").innerHTML = "";
+            }
+        }
+    }
+
+    function go_to_info() {
+
+        window.location.href = "Get_Info.html "
+    }
+</script>
+
+</html>

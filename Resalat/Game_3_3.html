@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>نخبه پروران</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/estilos.css">
+    <!-- Favicons -->
+    <link href="images/Logo_Final.png" rel="icon">
+    <link href="images/Logo_Final.png" rel="apple-touch-icon">
+</head>
+
+<body onload="get_color()" class="bg_body_game">
+
+    <div class="col-lg-4 main p0">
+        <div class="col-12 first_img p0">
+            <img src="images/bg_game.png">
+        </div>
+        <div class="choose_el m_0_0">
+
+            <div class="code_befor lvl_befor">
+                <ul>
+                    <li id="s_2_5" class="befor_colorfull"></li>
+                    <li id="s_1_5" class="befor_colorfull"></li>
+                    <li id="s_3_5" class="befor_colorfull"></li>
+                </ul>
+            </div>
+
+            <div class="game_window game_window_3_3">
+                <header>
+                    <div id="right" class="box">
+                        <div id="" class="puntua"> حریف</div>
+                        <div id="" class="puntua"> :</div>
+                        <div id="puntua_2" class="puntua">00</div>
+                    </div>
+                    <div id="left" class="box">
+                        <div id="puntua_1" class="puntua"> شما</div>
+                        <div id="puntua_1" class="puntua"> :</div>
+                        <div id="" class="puntua">00</div>
+                    </div>
+                </header>
+            </div>
+            <div class="info_window  ">
+                <p>نقطه بازی کن</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="center" class="box dot_box">
+        <canvas id="canvas" width="325" height="325"></canvas>
+
+    </div>
+
+</body>
+<script src="js/jquery-3.5.1.min.js "></script>
+<script src="js/script.js"></script>
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Script -->
+<script>
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+
+    function get_color() {
+        var out_1 = sessionStorage.getItem('out_1');
+        var out_2 = sessionStorage.getItem('out_2');
+        if (out_1 == '') {
+            document.getElementById("s_2_5").style.backgroundColor = "#00ff00 ";
+        } else {
+            document.getElementById("s_2_5").style.backgroundColor = "#ff0000 ";
+        }
+        if (out_2 == '') {
+            document.getElementById("s_1_5").style.backgroundColor = "#00ff00 ";
+        } else {
+            document.getElementById("s_1_5").style.backgroundColor = "#ff0000 ";
+        }
+        document.getElementById("s_3_5").style.backgroundColor = "#6DD7D7 ";
+    }
+
+    function win_you() {
+        sessionStorage.setItem('out_3', '');
+        sessionStorage.setItem('out_3_c', 'rgb(253,239,53,0)');
+        document.getElementById("s_3_5").style.backgroundColor = "#00ff00 ";
+        setTimeout(function() {
+            window.location.href = "Enter_Code.html "
+        }, 1000);
+    }
+
+    function win_camp() {
+        sessionStorage.setItem('out_3', 'پوچ');
+        sessionStorage.setItem('out_3_c', 'rgb(253,210,49,0.6)');
+        document.getElementById("s_3_5").style.backgroundColor = "#ff0000 ";
+
+        setTimeout(function() {
+            window.location.href = "Enter_Code.html "
+        }, 1000);
+    }
+</script>
+
+</html>
